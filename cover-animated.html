@@ -69,22 +69,22 @@
             height: 100%;
         }
         
-        /* Balls with glow - 3 balls triangle layout */
+        /* Balls with glow - 3 balls triangle layout, wider spacing */
         .balls {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 80px;
             margin-bottom: 50px;
             position: relative;
-            height: 280px;
+            height: 320px;
+            width: 500px;
         }
         
         .ball {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            position: relative;
+            position: absolute;
             animation: float 3s ease-in-out infinite;
         }
         
@@ -101,7 +101,6 @@
                 inset -8px -8px 20px rgba(0,0,0,0.4),
                 inset 8px 8px 20px rgba(255,255,255,0.3);
             animation-delay: 0s;
-            position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -115,9 +114,8 @@
                 inset -8px -8px 20px rgba(0,0,0,0.4),
                 inset 8px 8px 20px rgba(255,255,255,0.3);
             animation-delay: 0.5s;
-            position: absolute;
             bottom: 0;
-            left: 15%;
+            left: 10%;
         }
         
         .ball-yellow {
@@ -128,9 +126,8 @@
                 inset -8px -8px 20px rgba(0,0,0,0.4),
                 inset 8px 8px 20px rgba(255,255,255,0.3);
             animation-delay: 1s;
-            position: absolute;
             bottom: 0;
-            right: 15%;
+            right: 10%;
         }
         
         /* Title with neon glow */
