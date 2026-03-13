@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: #0f0f23;
+  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+}
+
+/* Landscape 1920x1080 */
+.landscape {
+  width: 1920px;
+  height: 1080px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landscape::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.3) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+}
+
+.landscape::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.3) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
+}
+
+.landscape-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.landscape-balls {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 60px;
+  justify-content: center;
+}
+
+.ball {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    inset -20px -20px 40px rgba(0,0,0,0.4),
+    inset 20px 20px 40px rgba(255,255,255,0.3),
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+.ball-red {
+  background: radial-gradient(circle at 35% 35%, #ff6b6b, #c92a2a);
+}
+
+.ball-blue {
+  background: radial-gradient(circle at 35% 35%, #4facfe, #00f2fe);
+}
+
+.ball-yellow {
+  background: radial-gradient(circle at 35% 35%, #ffe066, #fcc419);
+}
+
+.ball-green {
+  background: radial-gradient(circle at 35% 35%, #69db7c, #2f9e44);
+}
+
+.landscape h1 {
+  font-size: 140px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.landscape h1 span {
+  color: #e94560;
+}
+
+.landscape .subtitle {
+  font-size: 48px;
+  color: #a0a0a0;
+  font-weight: 600;
+  letter-spacing: 8px;
+}
+
+/* Portrait 800x1200 */
+.portrait {
+  width: 800px;
+  height: 1200px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.25) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
+}
+
+.portrait-balls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px 80px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 10;
+  padding: 0 40px;
+}
+
+.portrait .ball {
+  width: 200px;
+  height: 200px;
+}
+
+.portrait h1 {
+  font-size: 90px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.portrait h1 span {
+  color: #e94560;
+}
+
+.portrait .subtitle {
+  font-size: 36px;
+  color: #a0a0a0;
+  font-weight: 600;
+  letter-spacing: 6px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Square 800x800 */
+.square {
+  width: 800px;
+  height: 800px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.square::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.25) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+}
+
+.square-balls {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.square .ball {
+  width: 140px;
+  height: 140px;
+}
+
+.square h1 {
+  font-size: 80px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.square h1 span {
+  color: #e94560;
+}
+
+.square .subtitle {
+  font-size: 32px;
+  color: #a0a0a0;
+  font-weight: 600;
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 10;
+}
+</style>
+</head>
+<body>
+
+<!-- Landscape 1920x1080 -->
+<div class="landscape" id="landscape">
+  <div class="landscape-content">
+    <div class="landscape-balls">
+      <div class="ball ball-red"></div>
+      <div class="ball ball-blue"></div>
+      <div class="ball ball-yellow"></div>
+      <div class="ball ball-green"></div>
+    </div>
+    <h1>Ball <span>Match</span></h1>
+    <div class="subtitle">MATCH 3 TO WIN</div>
+  </div>
+</div>
+
+<!-- Portrait 800x1200 -->
+<div class="portrait" id="portrait">
+  <div class="portrait-balls">
+    <div class="ball ball-red"></div>
+    <div class="ball ball-blue"></div>
+    <div class="ball ball-yellow"></div>
+    <div class="ball ball-green"></div>
+  </div>
+  <h1>Ball <span>Match</span></h1>
+  <div class="subtitle">MATCH 3 TO WIN</div>
+</div>
+
+<!-- Square 800x800 -->
+<div class="square" id="square">
+  <div class="square-balls">
+    <div class="ball ball-red"></div>
+    <div class="ball ball-blue"></div>
+    <div class="ball ball-yellow"></div>
+    <div class="ball ball-green"></div>
+  </div>
+  <h1>Ball <span>Match</span></h1>
+  <div class="subtitle">MATCH 3 TO WIN</div>
+</div>
+
+<script>
+// Wait for fonts to load
+setTimeout(() => {
+  console.log('Ready for screenshot');
+}, 1000);
+</script>
+
+</body>
+</html>
